@@ -27,17 +27,17 @@ public class Mano {
 		
 		Resultado resultado = null;
 		
-		if (this.MiForma == otra.MiForma){
-         resultado = Resultado.EMPATA;   
-		}
-
-        int miNumero = this.MiForma.getValor();
+		int miNumero = this.MiForma.getValor();
         int otraNumero = otra.MiForma.getValor();
 
         if (otraNumero == (miNumero + 1) % 5 || otraNumero == (miNumero + 2) % 5)
         { resultado = Resultado.PIERDE; }
         else{ resultado = Resultado.GANA; }
 
+        if (this.MiForma == otra.MiForma){
+			resultado = Resultado.EMPATA;   
+		}
+        
         return resultado;
 	}
 
