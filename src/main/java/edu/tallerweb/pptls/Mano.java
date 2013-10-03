@@ -10,8 +10,11 @@ public class Mano {
 	 * la que determine su condición en el juego.
 	 * @param forma, la Forma que adopta la Mano.
 	 */
+	
+	private Forma MiForma;
+	
 	public Mano(final Forma forma) {
-		throw new RuntimeException("No implementado aún");
+		this.MiForma = forma;
 	}
 
 	/**
@@ -21,7 +24,23 @@ public class Mano {
 	 * @return un Resultado, de acuerdo al estado del juego.
 	 */
 	public Resultado jugarCon(final Mano otra) {
-		throw new RuntimeException("No implementado aún");
+		
+		Resultado resultado = null;
+		
+		if (this.MiForma == otra.MiForma){
+         resultado = Resultado.EMPATA;   
+		}
+
+        int miNumero = this.MiForma.getValor();
+        int otraNumero = otra.MiForma.getValor();
+
+        if (otraNumero == (miNumero + 1) % 5 || otraNumero == (miNumero + 2) % 5)
+        { resultado = Resultado.PIERDE; }
+        else{ resultado = Resultado.GANA; }
+
+        return resultado;
 	}
 
 }
+
+
